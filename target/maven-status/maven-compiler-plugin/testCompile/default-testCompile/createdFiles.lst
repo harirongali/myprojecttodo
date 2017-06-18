@@ -1,0 +1,4 @@
+example/jbot/slack/SlackBotTest.class
+example/jbot/slack/SlackSlashCommandTest.class
+example/jbot/slack/SlackWebhooksTest.class
+example/jbot/slack/SlackBotTest$TestBot.class
