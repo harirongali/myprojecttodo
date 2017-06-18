@@ -171,7 +171,8 @@ public class TicTacToeBoard {
             if (board[i] == EMPTY)
                 blankCount++;
 
-        if (blankCount == 0 || (blankCount == 1 && !oneChance) || (blankCount == 2 && !twoChances))
+        if (blankCount == 0 || (blankCount == 1 && !oneChance) ||
+                (blankCount == 2 && !twoChances && !oneChance))
             return DRAW;          // Game is a draw
 
         return NONE;              // Game is not over
