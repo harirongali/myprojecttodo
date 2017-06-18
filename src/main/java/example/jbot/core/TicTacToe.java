@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 import static example.jbot.config.Constants.*;
 
 /**
- * Created by harirongali on 6/16/17.
+ * Created by xxxxx on 6/16/17.
  */
 public class TicTacToe {
     /**

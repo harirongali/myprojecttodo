@@ -4,7 +4,7 @@ import me.ramswaroop.jbot.core.slack.models.Attachment;
 import me.ramswaroop.jbot.core.slack.models.RichMessage;
 
 /**
- * Created by harirongali on 6/17/17.
+ * Created by xxxxx on 6/17/17.
  */
 public class BaseCommand {
     /**

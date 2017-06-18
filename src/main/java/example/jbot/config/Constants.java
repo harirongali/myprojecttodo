@@ -1,7 +1,7 @@
 package example.jbot.config;
 
 /**
- * Created by harirongali on 6/17/17.
+ * Created by xxxxx on 6/17/17.
  */
 public class Constants {
     public static final int EMPTY = 2;
