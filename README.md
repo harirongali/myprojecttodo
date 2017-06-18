@@ -47,7 +47,7 @@ gets accepted, all other challenges on that channel get cleared.
 git clone https://github.com/harirongali/slackTicTacToe
 cd slackTicTacToe
 ```
-- Install the packages locally
+- Run on IDE or on command line
 ```sh
 mvn spring-boot:run
 ```
