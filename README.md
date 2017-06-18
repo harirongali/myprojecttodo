@@ -3,6 +3,8 @@
 Slack tic tac toe game that allows you to play tic tac toe with 
 someone in a slack channel
 
+Project is based out of https://github.com/ramswaroop/jbot
+
 # Rules
 
 If your unfamiliar with the complex rules of tic tac toe, check them @ [this wikipedia
