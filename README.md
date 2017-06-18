@@ -1,7 +1,7 @@
 # SlackTicTacToe
 
-Slack tic tac toe game that allows you to play tic tac toe with with
-someone in any slack channel
+Slack tic tac toe game that allows you to play tic tac toe with 
+someone in a slack channel
 
 # Rules
 
