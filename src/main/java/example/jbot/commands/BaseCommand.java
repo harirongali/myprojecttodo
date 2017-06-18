@@ -7,7 +7,11 @@ import me.ramswaroop.jbot.core.slack.models.RichMessage;
  * Created by harirongali on 6/17/17.
  */
 public class BaseCommand {
-
+    /**
+     *
+     * @param message
+     * @return
+     */
     public RichMessage buildMessage(String message) {
         RichMessage richMessage = new RichMessage("TicTacToe Game !");
         richMessage.setResponseType("in_channel");

@@ -9,7 +9,17 @@ import org.springframework.stereotype.Component;
  * Created by harirongali on 6/16/17.
  */
 @Component
-public class Accept extends BaseCommand{
+public class Accept extends BaseCommand {
+    /**
+     * Validate the existence of game and find the challenge for a given channel.
+     * If there is a challenge, then create a TicTacToe object and start the game.
+     * Clear all challenges for a channel.
+     * @param channelId
+     * @param player1
+     * @param player2
+     * @param gameCache
+     * @return
+     */
     public RichMessage handleCommand(String channelId, String player1, String player2, GameCache gameCache) {
         if (gameCache.isActiveGame(channelId)) {
             return buildMessage("An active Game exists in the channel! Only one game allowed per channel");

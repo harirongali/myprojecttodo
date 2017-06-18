@@ -9,6 +9,10 @@ import static example.jbot.config.Constants.*;
  * Created by harirongali on 6/16/17.
  */
 public class TicTacToe {
+    /**
+     * Holds the Board and players
+     * Maintains state and flips for each move.
+     */
     private TicTacToeBoard board = new TicTacToeBoard();
     private GamePlayers gamePlayers;
     private boolean state; //False Player1 & True Player2
@@ -27,6 +31,9 @@ public class TicTacToe {
     }
 
     public String printStatus() {
+        /**
+         * Get the status of the Game and provide the corresponding message.
+         */
         Integer status = board.getState();
         String message = "";
         if (status == PLAYER1) {
@@ -53,6 +60,7 @@ public class TicTacToe {
         this.state = state;
     }
 
+    // Flip state after every move
     public void flipState() {
         this.state = !state;
     }

@@ -10,6 +10,15 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class Move extends BaseCommand {
+    /**
+     * Validate the active game and current Player for a game.
+     * If there is a result, then remove the game from active Games.
+     * @param channelId
+     * @param player
+     * @param cell
+     * @param gameCache
+     * @return
+     */
     public RichMessage handleCommand(String channelId, String player, String cell, GameCache gameCache) {
         if (!gameCache.isActiveGame(channelId)) {
             return buildMessage("No Active Game exists!. \n '/ttt challenge @<Teammember>' to start the game");
@@ -27,6 +36,7 @@ public class Move extends BaseCommand {
         if (!errorMessage.isEmpty()) {
             return buildMessage(errorMessage);
         }
+
         game.flipState();
 
         String message = game.printStatus();

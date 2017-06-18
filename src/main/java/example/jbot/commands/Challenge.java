@@ -12,6 +12,15 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class Challenge extends  BaseCommand {
+    /**
+     * Validates existence of an active Game and checks for self play.
+     * Update the challenges for a channel.
+     * @param channelId
+     * @param player1
+     * @param player2
+     * @param gameCache
+     * @return
+     */
     public RichMessage handleCommand(String channelId, String player1, String player2, GameCache gameCache) {
         if (gameCache.isActiveGame(channelId)) {
             return buildMessage("An active Game exists in the channel");

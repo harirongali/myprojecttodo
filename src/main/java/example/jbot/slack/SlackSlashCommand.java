@@ -93,6 +93,7 @@ public class SlackSlashCommand {
         RichMessage richMessage = BaseCommand.defaultMessage();
         String[] paramArgs = text.split(" ");
 
+        /** Process and handle Commands **/
         try {
             richMessage = processCommands(paramArgs, channelId, userName);
         } catch (Exception e) {
@@ -112,6 +113,10 @@ public class SlackSlashCommand {
     }
 
     private RichMessage processCommands(String[] paramArgs, String channelId, String userName) {
+        /**
+         * Process each of command and call the handler for each.
+         * For accept and challenge commands, check for @username as well.
+         */
         if (paramArgs[0].equals("accept") && paramArgs[1].startsWith("@")) {
             return accept.handleCommand(channelId, paramArgs[1].substring(1), userName, gameCache);
         } else if(paramArgs[0].equals("challenge")&& paramArgs[1].startsWith("@")) {

@@ -8,7 +8,13 @@ import org.springframework.stereotype.Component;
  * Created by harirongali on 6/17/17.
  */
 @Component
-public class GameHelp extends BaseCommand{
+public class GameHelp extends BaseCommand {
+    /**
+     *
+     * @param channelId
+     * @param gameCache
+     * @return
+     */
     public RichMessage handleCommand(String channelId, GameCache gameCache) {
         String message = "`/ttt challenge [@username]` play tictactoe !" +
                 "\n`/ttt accept [@username]` a challenged game" +

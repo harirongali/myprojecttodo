@@ -14,8 +14,11 @@ import static example.jbot.config.Constants.*;
  */
 @Component
 public class GameCache {
-    private HashMap<String, TicTacToe> allActiveGames;
-    private HashMap<String, ArrayList<GamePlayers>> challegedGames;
+    /**
+     * Cache to hold games for all channels.
+     */
+    private HashMap<String, TicTacToe> allActiveGames; // Only one Game Per Channel
+    private HashMap<String, ArrayList<GamePlayers>> challegedGames; // Holds all challenges per channel
 
     @PostConstruct
     public void init() {
@@ -24,6 +27,9 @@ public class GameCache {
     }
 
     public void updateChallengedGames(String channelId, GamePlayers challenge) {
+        /**
+         * Create or update Challenges in the Map.
+         */
         if (challegedGames.containsKey(channelId)) {
             challegedGames.get(channelId).add(challenge);
         } else {
@@ -34,6 +40,9 @@ public class GameCache {
     }
 
     public GamePlayers findChallenge(String channelId, String player1, String player2) {
+        /**
+         * Find the challenge for a combination of players in a channel.
+         */
         if (challegedGames.containsKey(channelId)) {
             ArrayList<GamePlayers> tempConf = challegedGames.get(channelId);
             for (GamePlayers gamePlayers : tempConf) {
@@ -55,6 +64,10 @@ public class GameCache {
     }
 
     public void startGame(String channelId, GamePlayers gamePlayers) {
+        /**
+         * When a user accepts a challenge, then TicTacToe is created and added to activeGames object
+         * All challenges for a channel are cleared.
+         */
         allActiveGames.put(channelId, new TicTacToe(gamePlayers));
         challegedGames.remove(channelId);
     }
@@ -64,6 +77,10 @@ public class GameCache {
     }
 
     public Boolean isGameOver(String channelId) {
+        /**
+         * Check to see if there a result for game.
+         * True => Win or Draw
+         */
         Integer status = getGame(channelId).getBoard().getState();
         if (status == PLAYER1 || status == PLAYER2 || status == DRAW) {
             return true;
@@ -76,6 +93,9 @@ public class GameCache {
     }
 
     public boolean isPlaying(String channelId, String player) {
+        /**
+         * Check to see if the player is actually part of the game in a channel
+         */
         if (getGame(channelId).getGamePlayers().getPlayer1Name().equals(player) ||
                 getGame(channelId).getGamePlayers().getPlayer2Name().equals(player)) {
             return true;
@@ -84,6 +104,9 @@ public class GameCache {
     }
 
     public String getMoves(String channelId) {
+        /**
+         * Provide all possible moves
+         */
         if (isActiveGame(channelId)) {
             return getGame(channelId).getMoves();
         } else {

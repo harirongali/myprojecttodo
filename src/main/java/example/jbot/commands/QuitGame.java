@@ -8,7 +8,14 @@ import org.springframework.stereotype.Component;
  * Created by harirongali on 6/17/17.
  */
 @Component
-public class QuitGame extends BaseCommand{
+public class QuitGame extends BaseCommand {
+    /**
+     * Player can quit and the game will be removed from the active games.
+     * @param channelId
+     * @param player
+     * @param gameCache
+     * @return
+     */
     public RichMessage handleCommand(String channelId, String player, GameCache gameCache) {
         if (!gameCache.isActiveGame(channelId)) {
             return buildMessage("No Active Game exists!. \n '/ttt challenge @<Teammember>' to start the game");

@@ -8,8 +8,12 @@ import static example.jbot.config.Constants.*;
  */
 public class TicTacToeBoard {
 
-    private int board[];
+    /**
+     * Maintains board and handles moves & Prints the board
+     */
+    private int board[]; // 0 - 8 cells
     private int trackCells[][] = {
+            //Tracks all combinations for a result
             {0, 1, 2},    // Row 1
             {3, 4, 5},    // Row 2
             {6, 7, 8},    // Row 3
@@ -116,6 +120,9 @@ public class TicTacToeBoard {
 
     private String playAt(int index, int player)
     {
+        /**
+         * validates the move and places CROSS for first player and NOUGHT for second player.
+         */
         if (index < 0 | index > 8)
             return "Invalid Move. Cell must be " + getRemainingMoves();
         if (player <1 | player > 2)
@@ -131,6 +138,14 @@ public class TicTacToeBoard {
 
     public int getState()
     {
+        /**
+         * State of the Board ==> Win/Draw or continue
+         * For Draw, considering possible wins as well.
+         * Possible moves for a draw:
+         *    1. Blanks zero ==> Draw
+         *    2. Blanks one ==> check if every trackCells has atleast one CROSS & NOUGHT
+         *    3. Blanks Two ==> A win is possible only if there is a combination of trackcells with two CROSS's or NOUGHT's
+         */
         Boolean oneChance = false;
         Boolean twoChances = false;
         // check for win
@@ -155,6 +170,7 @@ public class TicTacToeBoard {
         for (int i = 0; i < board.length; i++)
             if (board[i] == EMPTY)
                 blankCount++;
+
         if (blankCount == 0 || (blankCount == 1 && !oneChance) || (blankCount == 2 && !twoChances))
             return DRAW;          // Game is a draw
 

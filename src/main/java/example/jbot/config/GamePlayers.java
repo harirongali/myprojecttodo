@@ -9,6 +9,9 @@ import static example.jbot.config.Constants.*;
  * Created by harirongali on 6/16/17.
  */
 public class GamePlayers {
+    /**
+     * Holds player for a game
+     */
     private String player1;
     private String player2;
 
