@@ -39,7 +39,7 @@ public class TicTacToe {
         if (status == PLAYER1) {
             message = "@"+ gamePlayers.getPlayer1Name() + " won the game!";
         } else if (status == PLAYER2) {
-            message = "@"+ gamePlayers.getPlayer1Name() + " won the game!";
+            message = "@"+ gamePlayers.getPlayer2Name() + " won the game!";
         } else if (status == DRAW) {
             message = "@"+ gamePlayers.getPlayer1Name() + " and @"+ gamePlayers.getPlayer2Name() +" tied the game!";
         } else {
